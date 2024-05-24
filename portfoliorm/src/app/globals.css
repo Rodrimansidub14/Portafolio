@@ -1,0 +1,37 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+@font-face {
+  font-family:'JetBrains Mono',  ;
+  src: url('/portfoliorm/public/fonts/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family:'Pixelify Sans',  ;
+  src: url('/portfoliorm/public/fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
+}
+html, body {
+  @apply font-sans;
+  @apply font-sans2;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0); /* Asegura que el fondo sea blanco */
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  position: relative;
+  z-index: 10; /* Asegurar que el contenido esté encima del shader */
+  background-color: rgba(0, 0, 0, 0.754); /* Fondo con opacidad */
+  max-width: 1350; /* Ajustar según sea necesario */
+  border: 1px solid #33333300;
+  padding: 20px;
+}
