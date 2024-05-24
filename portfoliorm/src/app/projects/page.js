@@ -1,12 +1,14 @@
-import ScrollNav from '../../components/ScrollNav';
+import ProjectList from '@/components/ProjectList';
+import Modal from '@/components/Modal';
+import { PopupProvider } from '@/components/popupcontext';
 
-export default function Projects() {
+export default function Home() {
   return (
-    <ScrollNav>
-      <div className="h-screen">
-        <h1>Projects</h1>
-        <p>This is the projects page of my portfolio.</p>
-      </div>
-    </ScrollNav>
+    <PopupProvider>
+      <main>
+        <ProjectList />
+        <Modal />
+      </main>
+    </PopupProvider>
   );
 }

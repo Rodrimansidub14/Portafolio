@@ -10,8 +10,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-black text-white">
         <ShaderBackground />
+        <div className="overlay"></div>
         <Navbar />
-        <div >
+        <div>
           {children}
         </div>
       </body>

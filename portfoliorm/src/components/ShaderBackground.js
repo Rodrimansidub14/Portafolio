@@ -39,7 +39,7 @@ const ShaderBackground = () => {
         float c = random(i + vec2(0.0, 1.0));
         float d = random(i + vec2(1.0, 1.0));
 
-        vec2 u = f * f * (4.0 - 1.0 * f);
+        vec2 u = f * f * (4.0 - 1.5 * f);
 
         return mix(a, b, u.x) +
                (c - a) * u.y * (1.0 - u.x) +
@@ -51,7 +51,7 @@ const ShaderBackground = () => {
         float amplitude = 0.5;
         for (int i = 0; i < 5; i++) {
           value += amplitude * noise(st);
-          st *= 5.0;
+          st *= 6.0;
           amplitude *= 0.7;
         }
         return value;
@@ -68,7 +68,7 @@ const ShaderBackground = () => {
           color *= vec3(r);
         }
 
-        gl_FragColor = vec4(color, 0.1); // Adjusted opacity
+        gl_FragColor = vec4(color, 0.7); // Adjusted opacity
       }
     `;
 
