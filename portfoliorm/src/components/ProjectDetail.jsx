@@ -21,7 +21,7 @@ const projectDetails = {
     blackList: {
         title: 'ListaNegra',
         description: 'Detailed description of the ListaNegra project...',
-        github: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FvAx6pvOQF4v59tAtkJz7IQ%2FProyecto-4%3Ft%3DyJpQ8H6b3j4oqVpD-1',
+        github: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FjvfNWeo3MiwYE36lqwBmW4%2FListaNegra%3Fnode-id%3D0-1%26t%3DyJpQ8H6b3j4oqVpD-1',
     },
     potentials: {
         title: 'Electric Potential Energy Simulation',
@@ -46,7 +46,7 @@ const ProjectDetail = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-10 container">
-            <h1 className="text-4xl font-sans font-medium mb-4">{details.title}</h1>
+            <h1 className="text-4xl font-sans font-medium text-center mb-4">{details.title}</h1>
             <p className="text-lg mb-6">{details.description}</p>
             <Link href={details.github} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
                 GitHub Repository
