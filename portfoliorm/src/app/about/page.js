@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 const sectionsData = [
-  { id: "about-me", title: "Sobre Mi", content: (
+  { id: "about-me", title: "About Me", content: (
     <>
       <p className="mb-3">Born in Guatemala, 2004. Studying Computer Science at Universidad del Valle de Guatemala. I believe that Computer Science holds the key to solving many of the world's challenges.</p>
       <br />
