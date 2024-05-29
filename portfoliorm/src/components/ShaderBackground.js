@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const ShaderBackground = () => {
   const mountRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -101,12 +102,26 @@ const ShaderBackground = () => {
       uniforms.resolution.value.set(window.innerWidth, window.innerHeight);
     });
 
+    // Simulate loading completion
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust the delay as needed
+
     return () => {
       mount.removeChild(renderer.domElement);
     };
   }, []);
 
-  return <div ref={mountRef} className="fixed top-0 left-0 w-full h-full z-0"></div>;
+  return (
+    <div className="fixed top-0 left-0 w-full h-full z-0">
+      {isLoading && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black z-10">
+          <div className="loader">Loading...</div>
+        </div>
+      )}
+      <div ref={mountRef}></div>
+    </div>
+  );
 };
 
 export default ShaderBackground;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { usePopup } from './popupcontext';
 
@@ -40,6 +40,7 @@ const projectDetails = {
 const Modal = () => {
   const { isOpen, currentProject, closePopup } = usePopup();
   const modalRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (isOpen) {
@@ -48,6 +49,15 @@ const Modal = () => {
       gsap.to(modalRef.current, { rotationY: 90, opacity: 0, duration: 0.8 });
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (currentProject) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000); // Adjust the delay as needed
+    }
+  }, [currentProject]);
 
   if (!isOpen || !currentProject) return null;
 
@@ -84,11 +94,15 @@ const Modal = () => {
           </div>
         )}
         {details.figma && (
-          <div className="modal-figma-container">
+          <div className="modal-figma-container relative">
+            {isLoading && (
+              <div className="skeleton-loader absolute top-0 left-0 w-full h-full z-10"></div>
+            )}
             <iframe
               className="modal-figma"
               src={details.figma}
               allowFullScreen
+              onLoad={() => setIsLoading(false)}
             ></iframe>
           </div>
         )}
@@ -98,4 +112,3 @@ const Modal = () => {
 };
 
 export default Modal;
-
