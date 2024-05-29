@@ -11,6 +11,8 @@ const sectionsData = [
       <p className="mb-3">Born in Guatemala, 2004. Studying Computer Science at Universidad del Valle de Guatemala. I believe that Computer Science holds the key to solving many of the world's challenges.</p>
       <br />
       <blockquote className="italic ">"Wonder is the beginning of wisdom." - Socrates</blockquote>
+      <br />
+      <p className="text-opacity-80 text-xs">Scroll to Continue...</p>
     </>
   )},
   { id: "skills", title: "Skills", content: "JavaScript, React, Node.js, CSS, HTML, and more..." },
