@@ -21,7 +21,7 @@ const projectDetails = {
     blackList: {
         title: 'ListaNegra',
         description: 'Detailed description of the ListaNegra project...',
-        github: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FjvfNWeo3MiwYE36lqwBmW4%2FListaNegra%3Fnode-id%3D0-1%26t%3DyJpQ8H6b3j4oqVpD-1',
+        figma: 'https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FvAx6pvOQF4v59tAtkJz7IQ%2FProyecto-4%3Fnode-id%3D0-1%26t%3D7TduDPYRvNhG9lOI-1',
     },
     potentials: {
         title: 'Electric Potential Energy Simulation',

@@ -10,7 +10,7 @@ const HeroSection = () => {
             RODRIGO MANSILLA  
           </h1>
           <h1 className="text-6xl font-sans leading-none font-bold"><br />SOFTWARE</h1>
-          <h1 className="text-6xl font-sans leading-none font-bold">DEVELOPER</h1>
+          <h1 className="text-6xl font-sans leading-none font-bold">ENGINEER</h1>
         </div>
 
       </section>

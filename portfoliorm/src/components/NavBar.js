@@ -1,14 +1,16 @@
-// /components/NavBar.js
 "use client";
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState, useRef } from 'react';
+import { gsap } from 'gsap';
 
 export default function NavBar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [currentPath, setCurrentPath] = useState(pathname);
   const [isOpen, setIsOpen] = useState(false);
+  const linkRefs = useRef([]);
 
   useEffect(() => {
     setCurrentPath(pathname);
@@ -21,6 +23,22 @@ export default function NavBar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleNavigation = (e, href, index) => {
+    e.preventDefault();
+    gsap.to(linkRefs.current[index], { color: '#D5D6D7', duration: 0.5 });
+    router.push(href);
+  };
+
+  useEffect(() => {
+    linkRefs.current.forEach((link, index) => {
+      if (currentPath === link.getAttribute('href')) {
+        gsap.to(link, { color: '#D5D6D7', duration: 0.05 });
+      } else {
+        gsap.to(link, { color: '#FFFFFF', duration: 0.05 });
+      }
+    });
+  }, [currentPath]);
 
   return (
     <nav className="fixed top-1/6 left-12 space-y-1 z-50">
@@ -39,21 +57,19 @@ export default function NavBar() {
         </button>
         <div className={`w-full md:block md:w-auto ${isOpen ? "" : "hidden"}`} id="navbar-default">
           <ul className="font-medium flex flex-col space-y-5">
-            <li>
-              <Link href="/" className={`block text-2xl font-sans ${getNavClass("/")} hover:text-gray-200 transition duration-300`} aria-current="page">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className={`block text-2xl font-sans ${getNavClass("/about")} hover:text-gray-200 transition duration-300`}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/projects" className={`block text-2xl font-sans ${getNavClass("/projects")} hover:text-gray-200 transition duration-300`}>
-                Projects
-              </Link>
-            </li>
+            {['/', '/about', '/projects'].map((href, index) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  ref={el => linkRefs.current[index] = el}
+                  onClick={(e) => handleNavigation(e, href, index)}
+                  className={`block text-2xl font-sans ${getNavClass(href)} hover:text-gray-200 transition duration-300`}
+                  aria-current={currentPath === href ? "page" : undefined}
+                >
+                  {href === '/' ? 'Home' : href.substring(1)}
+                </Link>
+              </li>
+            ))}
             {/* Añade más enlaces según sea necesario */}
           </ul>
         </div>

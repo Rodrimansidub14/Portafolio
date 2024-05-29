@@ -4,11 +4,11 @@ import { PopupProvider } from '@/components/popupcontext';
 
 export default function Home() {
   return (
-    <PopupProvider>
-      <main>
-        <ProjectList />
-        <Modal />
-      </main>
-    </PopupProvider>
+      <PopupProvider>
+        <main className='min-h-screen'>
+          <ProjectList />
+          <Modal />
+        </main>
+      </PopupProvider>
   );
 }
